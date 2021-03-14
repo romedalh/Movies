@@ -48,7 +48,7 @@
         }
     </dd>
 </dl>
-@for (int i = 1; i <= 10; i++)
+@for (int i = 0; i <= 10; i++)
 {
     <a class="btn btn-primary" href="@Url.Action("Rate", new {movieId = Model.Id, rating = i})">@i</a>
 }
