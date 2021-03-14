@@ -1,0 +1,12 @@
+﻿@model IList<Movies.Logic.Queries.MovieHeader>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Start Wars movies</h1>
+</div>
+@foreach (var movie in Model)
+{
+    <div><p>@Html.ActionLink(movie.Title,"Details","Home", new {id = movie.Id })</p></div>
+}

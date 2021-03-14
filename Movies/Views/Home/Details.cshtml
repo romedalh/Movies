@@ -1,0 +1,54 @@
+﻿@model Movies.Logic.Queries.MovieDetails
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<div class="text-center">
+    <h1 class="display-4">@Model.Title</h1>
+</div>
+
+<dl>
+    <dt>
+        @Html.DisplayNameFor(model => model.EpisodeId)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.EpisodeId)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Director)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Director)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Producer)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Producer)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.ReleaseDate)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.ReleaseDate)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.OpeningCrawl)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.OpeningCrawl)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Rating)
+    </dt>
+    <dd>
+        @{
+            var votesString = $"{Model.Rating} ({Model.VotesCount} votes)";
+            @Html.DisplayFor(model => votesString)
+        }
+    </dd>
+</dl>
+@for (int i = 1; i <= 10; i++)
+{
+    <a class="btn btn-primary" href="@Url.Action("Rate", new {movieId = Model.Id, rating = i})">@i</a>
+}
